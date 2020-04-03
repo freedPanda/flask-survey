@@ -1,0 +1,15 @@
+{% extends "index.html" %}
+{% block title %}
+<h2>{{question}}</h2>
+{% endblock %}
+{% block content %}
+<form method ='post' action='/question/{{next_question}}'>
+    {% for choice in choices %}
+    <input type = 'radio' id = {{choice}} name='answer' value={{mod_choices.get(choices.index(choice),'false')}} required>
+    <label for={{choice}}>{{choice}}</label>
+    {% endfor %}
+    <!--input type='radio' id='none' name='answer' value='no_answer' checked>
+    <label for='none'>No answer</label-->
+    <button type='submit'>Submit</button>
+</form>
+{% endblock %}

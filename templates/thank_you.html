@@ -1,0 +1,14 @@
+{% extends "index.html" %}
+{% block title %}
+<h2>Thank for completing {{survey_title}}!</h2>
+{% endblock %}
+{% block content %}
+<h3>You answered the following questions with:</h3>
+
+<ol>
+    {% for question in questions %}
+    <li>{{question.question}} {{session['responses'].get(questions.index(question),'not right')}}</li>
+    {% endfor %}
+</ol>
+{% endblock %}
+
